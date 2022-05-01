@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudsume.Client", "Cloudsume.Client\Cloudsume.Client.csproj", "{A904A52D-4896-4921-968B-A2ED6511FF77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudsume.Client.Tests", "Cloudsume.Client.Tests\Cloudsume.Client.Tests.csproj", "{A80FC0BE-3C33-4676-B796-CCE247A41BC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A904A52D-4896-4921-968B-A2ED6511FF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A904A52D-4896-4921-968B-A2ED6511FF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A904A52D-4896-4921-968B-A2ED6511FF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A904A52D-4896-4921-968B-A2ED6511FF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80FC0BE-3C33-4676-B796-CCE247A41BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80FC0BE-3C33-4676-B796-CCE247A41BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80FC0BE-3C33-4676-B796-CCE247A41BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80FC0BE-3C33-4676-B796-CCE247A41BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
