@@ -15,10 +15,11 @@ public static class IServiceCollectionExtensions
     /// A delegate to provide <see cref="HttpClient"/>. This delegate will get called multiple times per client type. The <see cref="HttpClient.BaseAddress"/>
     /// must be configured before returning from the delegate. Usually the value will be is https://api.cloudsume.com.
     /// </param>
-    public static void AddCloudsumeClients(this IServiceCollection services, Func<IServiceProvider, HttpClient> httpClient)
+    public static void AddCloudsumeClients(this IServiceCollection services, Func<IServiceProvider, Type, HttpClient> httpClient)
     {
         services.AddSingleton(RefitFactory<IConfigurationClient>);
+        services.AddSingleton(RefitFactory<IFeedbackClient>);
 
-        T RefitFactory<T>(IServiceProvider services) => RestService.For<T>(httpClient(services));
+        T RefitFactory<T>(IServiceProvider services) => RestService.For<T>(httpClient(services, typeof(T)));
     }
 }
