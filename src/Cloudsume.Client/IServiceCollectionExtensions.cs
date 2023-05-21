@@ -1,5 +1,6 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
+using System.Text.Json;
 using Cloudsume.Client;
 using Refit;
 
@@ -20,6 +21,30 @@ public static class IServiceCollectionExtensions
         services.AddSingleton(RefitFactory<IConfigurationClient>);
         services.AddSingleton(RefitFactory<IFeedbackClient>);
 
-        T RefitFactory<T>(IServiceProvider services) => RestService.For<T>(httpClient(services, typeof(T)));
+        T RefitFactory<T>(IServiceProvider services)
+        {
+            // Setup JSON option.
+            var json = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+
+            json.AddSystemTypeConverters();
+
+            // Construct an implementation.
+            var client = httpClient.Invoke(services, typeof(T));
+
+            try
+            {
+                var settings = new RefitSettings()
+                {
+                    ContentSerializer = new SystemTextJsonContentSerializer(json),
+                };
+
+                return RestService.For<T>(client, settings);
+            }
+            catch
+            {
+                client.Dispose();
+                throw;
+            }
+        }
     }
 }
